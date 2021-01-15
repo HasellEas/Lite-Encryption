@@ -1,5 +1,5 @@
 def slovari():
-	{
+	dictionars_names={
 		'1': 'Global',
 	}
 	i=max_len=0
