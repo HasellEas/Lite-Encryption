@@ -174,7 +174,7 @@ def uncripting_with_alltime_key():
 	print("\n\nMODE: decryption with one alltime key\nUsed dictionary: "+str(dict_name)+"\n\nReady decryption text: "+str(uncripted_text)+'\n\n')
 
 def main():
-	type_wrk=input("Select: \n\n1 - Encryption with random key (more safe).\n2 - Encryption with key (easy to hack).\n3 - Decryption with full key (n1,n2,n3...). \n4 - Decryption with one alltime key (n,n,n...).\n5 - Change dictionary (dictionary now: "+str(dict_name)+" ).\n6 - Show settings.\n\n")
+	type_wrk=input("Select: \n\n1 - Encryption with random key (more safe).\n2 - Encryption with key (easy to hack).\n3 - Decryption with full key ([n1,n2,n3...]). \n4 - Decryption with one alltime key (n).\n5 - Change dictionary (dictionary now: "+str(dict_name)+").\n6 - Show settings.\n\n")
 	if type_wrk=='1':
 		cripting_without_key()
 	elif type_wrk=='2':
