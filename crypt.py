@@ -190,6 +190,7 @@ def main():
 
 def change_slovar():
 	global coder, uncoder, dict_name
+	parametr1='false'
 	coder,uncoder,dict_name=slovari(parametr1, parametr2)
 	print("\nDictionary successfully selected: "+str(dict_name)+"\n")
 
