@@ -1,4 +1,4 @@
-def slovari():
+def slovari(parametr1, parametr2):
 	dictionars_names={
 		'1': 'Global',
 	}
@@ -9,7 +9,10 @@ def slovari():
 		i+=1
 		i_text=str(i)
 		dictionars_list+=i_text+") "+dictionars_names[i_text]+"\n"
-	choose_slova=input("Choose dictionary to encryption:\n\n"+str(dictionars_list)+"\n")
+	if parametr1=='true':
+		choose_slova=parametr2
+	else:
+		choose_slova=input("Choose dictionary to encryption:\n\n"+str(dictionars_list)+"\n")
 	try:
 		dict_active_name=dictionars_names[choose_slova]
 	except:
