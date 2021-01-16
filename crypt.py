@@ -21,7 +21,9 @@ def logging(loged_text):
 def massivate_key(test):
 	i=point=target=0
 	word_t=num_m=''
-	massive=[0]*len(test)
+	len_t=0
+	len_t=test.count(',')+2
+	massive=[0]*len_t
 	while i<len(test):
 		word_t=str(test[i])
 		if word_t == ',':
@@ -48,7 +50,9 @@ def massivate_key(test):
 def massivate_text(test):
 	i=point=target=0
 	word_t=num_m=''
-	massive=[0]*len(test)
+	len_t=0
+	len_t=test.count(',')+2
+	massive=[0]*len_t
 	while i<len(test):
 		word_t=str(test[i])
 		if word_t == ',':
@@ -123,7 +127,7 @@ def uncripting():
 	keyw=input('Enter your key: ')
 	i=0
 	uncripted_text=''
-	lenght=text.count(',')+1
+	lenght=text.count(',')+2
 	massive_text_crypt=massive_key_crypt=[0]*lenght
 	massive_text_crypt=massivate_text(text)
 	massive_key_crypt=massivate_key(keyw)
@@ -151,7 +155,7 @@ def uncripting_with_alltime_key():
 	keyw=input('Enter your key: ')
 	i=massive_key_crypt=0
 	uncripted_text=''
-	lenght=text.count(',')+1
+	lenght=text.count(',')+2
 	massive_key_crypt=[0]*lenght
 	massive_text_crypt=massivate_text(text)
 	massive_key_crypt=int(keyw)
