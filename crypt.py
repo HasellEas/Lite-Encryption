@@ -1,4 +1,4 @@
-import random, json
+import random
 from crypt_s import slovari
 from config import conf
 
