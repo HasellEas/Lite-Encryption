@@ -123,7 +123,7 @@ def uncripting():
 	keyw=input('Enter your key: ')
 	i=0
 	uncripted_text=''
-	lenght=len(text)+1
+	lenght=text.count(',')+1
 	massive_text_crypt=massive_key_crypt=[0]*lenght
 	massive_text_crypt=massivate_text(text)
 	massive_key_crypt=massivate_key(keyw)
@@ -151,7 +151,7 @@ def uncripting_with_alltime_key():
 	keyw=input('Enter your key: ')
 	i=massive_key_crypt=0
 	uncripted_text=''
-	lenght=len(text)+1
+	lenght=text.count(',')+1
 	massive_key_crypt=[0]*lenght
 	massive_text_crypt=massivate_text(text)
 	massive_key_crypt=int(keyw)
