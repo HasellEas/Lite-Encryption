@@ -14,7 +14,7 @@ def pre_start():
 	parametr3=parametrs["maximal_random_in_encrypting_withowt_key"]
 
 def logging(loged_text):
-	with open('history.txt','a') as l:
+	with open('history.txt','a', encoding='utf-8') as l:
 		l.write(loged_text)
 
 #Функция преобразования строки в массив для key
