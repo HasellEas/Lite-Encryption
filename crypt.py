@@ -103,23 +103,26 @@ def cripting_with_full_key():
 	text=text.lower()
 	keyr_str=input("Enter key: ")
 	keyr=massivate_key(keyr_str)
-	i=lenght_if=0
-	lenght_if=len(text)-1
-	ready_cript=uncripy_key='['
-	while i<len(text):
-		word=text[i]
-		key_num=int(coder[word])
-		if i!=lenght_if:
-			uncripy_key+=str(keyr[i])+","
-			ready_cript+=str(key_num+keyr[i])+","
-		else:
-			uncripy_key+=str(keyr[i])+"]"
-			ready_cript+=str(key_num+keyr[i])+"]"
-		print(word+" "+coder[word]+" "+str(keyr[i]))
-		i+=1
-	itog="MODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyr)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
-	logging(itog)
-	print("\n\nMODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n')
+	if len(keyr)==len(text):
+		i=lenght_if=0
+		lenght_if=len(text)-1
+		ready_cript=uncripy_key='['
+		while i<len(text):
+			word=text[i]
+			key_num=int(coder[word])
+			if i!=lenght_if:
+				uncripy_key+=str(keyr[i])+","
+				ready_cript+=str(key_num+keyr[i])+","
+			else:
+				uncripy_key+=str(keyr[i])+"]"
+				ready_cript+=str(key_num+keyr[i])+"]"
+			print(word+" "+coder[word]+" "+str(keyr[i]))
+			i+=1
+		itog="MODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyr)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
+		logging(itog)
+		print("\n\nMODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n')
+	else:
+		print("The length of the keys in the array is not equal to the length of the text! Stop encryption ...")	
 
 #Функция шифрования с одним постоянным ключом (Хуета не безопастная!)
 def cripting_with_key():
