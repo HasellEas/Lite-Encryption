@@ -97,6 +97,29 @@ def cripting_without_key():
 	logging(itog)
 	print("\n\nMODE: encryption without key\nUsed dictionary: "+str(dict_name)+"\nReady encrypted text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n')
 
+#Функция шифрования с полным ключом
+def cripting_with_full_key():
+	text=input('Enter text: ')
+	text=text.lower()
+	keyr_str=input("Enter key: ")
+	keyr=massivate_key(keyr_str)
+	i=lenght_if=0
+	lenght_if=len(text)-1
+	ready_cript=uncripy_key='['
+	while i<len(text):
+		word=text[i]
+		key_num=int(coder[word])
+		if i!=lenght_if:
+			uncripy_key+=str(keyr[i])+","
+			ready_cript+=str(key_num+keyr[i])+","
+		else:
+			uncripy_key+=str(keyr[i])+"]"
+			ready_cript+=str(key_num+keyr[i])+"]"
+		print(word+" "+coder[word]+" "+str(keyr[i]))
+		i+=1
+	itog="MODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyr)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
+	logging(itog)
+	print("\n\nMODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n')
 
 #Функция шифрования с одним постоянным ключом (Хуета не безопастная!)
 def cripting_with_key():
@@ -178,18 +201,20 @@ def uncripting_with_alltime_key():
 	print("\n\nMODE: decryption with one alltime key\nUsed dictionary: "+str(dict_name)+"\n\nReady decryption text: "+str(uncripted_text)+'\n\n')
 
 def main():
-	type_wrk=input("Select: \n\n1 - Encryption with random key (more safe).\n2 - Encryption with key (easy to hack).\n3 - Decryption with full key ([n1,n2,n3...]). \n4 - Decryption with one alltime key (n).\n5 - Change dictionary (dictionary now: "+str(dict_name)+").\n6 - Show settings.\n\n")
+	type_wrk=input("Select: \n\n1 - Encryption with random key (more safe).\n2 - Encryption with key (easy to hack).\n3 - Encryption with full key ([n1,n2,n3],[k1,k2,k3] - OK | [n1,n2,n3],[k1,k2] - BAD).\n4 - Decryption with full key ([n1,n2,n3...]). \n5 - Decryption with one alltime key (n).\n6 - Change dictionary (dictionary now: "+str(dict_name)+").\n7 - Show settings.\n\n")
 	if type_wrk=='1':
 		cripting_without_key()
 	elif type_wrk=='2':
 		cripting_with_key()
 	elif type_wrk=='3':
-		uncripting()
+		cripting_with_full_key()
 	elif type_wrk=='4':
-		uncripting_with_alltime_key()
+		uncripting()
 	elif type_wrk=='5':
-		change_slovar()
+		uncripting_with_alltime_key()
 	elif type_wrk=='6':
+		change_slovar()
+	elif type_wrk=='7':
 		settings()
 
 def change_slovar():
