@@ -3,15 +3,16 @@ from crypt_s import slovari
 from config import conf
 
 def settings():
-	print("Settings: \nDefault dictionary enabled - "+str(parametr1)+"\nDefault dictionary - "+str(parametr2)+"\nMaximal random in encrypting without key - "+str(parametr3)+"\n")
+	print("Settings: \nDefault dictionary enabled - "+str(parametr1)+"\nDefault dictionary - "+str(parametr2)+"\nMaximal random in encrypting without key - "+str(parametr3)+"\nAutosave all actions - "+str(parametr4)+"\n")
 
 def pre_start():
-	global parametrs, parametr1, parametr2, parametr3
+	global parametrs, parametr1, parametr2, parametr3, parametr4
 	parametrs={}
 	parametrs=conf()
 	parametr1=parametrs["enable_default_dictionary"]
 	parametr2=parametrs["default_dictionary"]
 	parametr3=parametrs["maximal_random_in_encrypting_withowt_key"]
+	parametr4=parametrs["save_all_actions"]
 
 def logging(loged_text):
 	with open('history.txt','a', encoding='utf-8') as l:
@@ -93,8 +94,9 @@ def cripting_without_key():
 			uncripy_key+=str(keyr)+"]"
 			ready_cript+=str(key_num+keyr)+"]"
 		print(word+" "+coder[word]+" "+str(keyr))
-	itog="MODE: encryption without key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nReady encrypted text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
-	logging(itog)
+	if str(parametr4) == 'true':
+		itog="MODE: encryption without key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nReady encrypted text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
+		logging(itog)
 	print("\n\nMODE: encryption without key\nUsed dictionary: "+str(dict_name)+"\nReady encrypted text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n')
 
 #Функция шифрования с полным ключом
@@ -118,8 +120,9 @@ def cripting_with_full_key():
 				ready_cript+=str(key_num+keyr[i])+"]"
 			print(word+" "+coder[word]+" "+str(keyr[i]))
 			i+=1
-		itog="MODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyr)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
-		logging(itog)
+		if str(parametr4) == 'true':
+			itog="MODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyr)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
+			logging(itog)
 		print("\n\nMODE: encryption with full key\nUsed dictionary: "+str(dict_name)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n')
 	else:
 		print("The length of the keys in the array is not equal to the length of the text! Stop encryption ...")	
@@ -142,8 +145,9 @@ def cripting_with_key():
 			uncripy_key+=str(keyr)+"]"
 			ready_cript+=str(key_num+keyr)+"]"
 		print(word+" "+coder[word]+" "+str(keyr))
-	itog="MODE: encryption with key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyr)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
-	logging(itog)
+	if str(parametr4) == 'true':
+		itog="MODE: encryption with key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyr)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n'
+		logging(itog)
 	print("\n\nMODE: encryption with key\nUsed dictionary: "+str(dict_name)+"\nReady encryption text: "+str(ready_cript)+"\nYour key to decryption: "+str(uncripy_key)+'\n\n')
 
 #Функция расшифровки
@@ -171,8 +175,9 @@ def uncripting():
 				uncripted_text+=" WRONG_KEY "
 		print("Cycle "+str(i)+"\nMassive massive_minus= "+str(massive_minus)+"\nText= "+str(uncripted_text)+"\n\n")
 		i+=1
-	itog="MODE: decryption with full key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyw)+"\nReady decrypted text: "+str(uncripted_text)+'\n\n'
-	logging(itog)
+	if str(parametr4) == 'true':
+		itog="MODE: decryption with full key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyw)+"\nReady decrypted text: "+str(uncripted_text)+'\n\n'
+		logging(itog)
 	print("\n\nMODE: decryption with full key\nUsed dictionary: "+str(dict_name)+"\nReady decrypted text: "+str(uncripted_text)+'\n\n')
 
 def uncripting_with_alltime_key():
@@ -199,8 +204,9 @@ def uncripting_with_alltime_key():
 				uncripted_text+=" WRONG_KEY "
 		print("Cycle "+str(i)+"\nMassive massive_minus= "+str(massive_minus)+"\nText= "+str(uncripted_text)+"\n\n")
 		i+=1
-	itog="MODE: decryption with one alltime key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyw)+"\n\nReady decryption text: "+str(uncripted_text)+'\n\n'
-	logging(itog)
+	if str(parametr4) == 'true':
+		itog="MODE: decryption with one alltime key\nUsed dictionary: "+str(dict_name)+"\nUsed text: "+str(text)+"\nUsed key: "+str(keyw)+"\n\nReady decryption text: "+str(uncripted_text)+'\n\n'
+		logging(itog)
 	print("\n\nMODE: decryption with one alltime key\nUsed dictionary: "+str(dict_name)+"\n\nReady decryption text: "+str(uncripted_text)+'\n\n')
 
 def main():
