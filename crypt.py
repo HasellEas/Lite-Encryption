@@ -105,7 +105,7 @@ def cripting_with_full_key():
 	text=text.lower()
 	keyr_str=input("Enter key: ")
 	keyr=massivate_key(keyr_str)
-	if len(keyr)==len(text):
+	if len(keyr)-1==len(text):
 		i=lenght_if=0
 		lenght_if=len(text)-1
 		ready_cript=uncripy_key='['
